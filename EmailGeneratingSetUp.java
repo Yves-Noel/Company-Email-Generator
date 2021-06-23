@@ -13,7 +13,7 @@ public class EmailGeneratingSetUp {
 	private String lastName;
 	private String password;
 	private String department;
-	private String company = "GoDaddy";
+	private String company;
 	private String mailboxCapacity;
 	private String alternateEmail;
 	private int defaultPasswordLength = 8;
@@ -23,9 +23,10 @@ public class EmailGeneratingSetUp {
 	public EmailGeneratingSetUp () {
 		firstName = getEmployeeFirstName();
 		lastName = getEmployeeLastName();
+		company = getCompanyName();
 		department = getDepartment();
 		password = generatePassword(defaultPasswordLength);
-		companyEmail = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + company + ".com";
+		companyEmail = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + company.toLowerCase() + ".com";
 		
 		
 		System.out.println("\n\n");
@@ -58,6 +59,17 @@ public class EmailGeneratingSetUp {
 		System.out.println("Enter Last Name");
 		String employeeLastName = nameTwo.nextLine();
 		return employeeLastName;
+	}
+	
+	/**
+	 * 
+	 * @return Method gets the Employee's company name.
+	 */
+	private String getCompanyName() {
+		Scanner comp = new Scanner(System.in);
+		System.out.println("Enter Company Name");
+		String companyInput = comp.nextLine();
+		return companyInput;
 	}
 	
 	/**
